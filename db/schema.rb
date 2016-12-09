@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161209094717) do
+ActiveRecord::Schema.define(version: 20161209112718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,18 +18,20 @@ ActiveRecord::Schema.define(version: 20161209094717) do
   create_table "displays", force: :cascade do |t|
     t.string   "name"
     t.string   "theme"
-    t.integer  "users_id"
     t.boolean  "public"
     t.boolean  "archived"
     t.integer  "likes"
     t.integer  "size"
     t.string   "layout"
-    t.string   "ar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "items_id"
-    t.index ["items_id"], name: "index_displays_on_items_id", using: :btree
-    t.index ["users_id"], name: "index_displays_on_users_id", using: :btree
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_displays_on_user_id", using: :btree
+  end
+
+  create_table "displays_items", id: false, force: :cascade do |t|
+    t.integer "display_id", null: false
+    t.integer "item_id",    null: false
   end
 
   create_table "items", force: :cascade do |t|
@@ -37,12 +39,10 @@ ActiveRecord::Schema.define(version: 20161209094717) do
     t.string   "image"
     t.string   "link_context"
     t.string   "description"
-    t.integer  "users_id"
-    t.integer  "displays_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.index ["displays_id"], name: "index_items_on_displays_id", using: :btree
-    t.index ["users_id"], name: "index_items_on_users_id", using: :btree
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_items_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,10 +51,14 @@ ActiveRecord::Schema.define(version: 20161209094717) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "image"
+    t.string   "gender"
+    t.date     "Dob"
+    t.string   "location"
+    t.string   "interests"
+    t.text     "about"
   end
 
-  add_foreign_key "displays", "items", column: "items_id"
-  add_foreign_key "displays", "users", column: "users_id"
-  add_foreign_key "items", "displays", column: "displays_id"
-  add_foreign_key "items", "users", column: "users_id"
+  add_foreign_key "displays", "users"
+  add_foreign_key "items", "users"
 end

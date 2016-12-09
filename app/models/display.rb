@@ -1,4 +1,4 @@
 class Display < ApplicationRecord
-  belongs_to :users
-  belongs_to :items
+  belongs_to :user
+  has_and_belongs_to_many :items
 end

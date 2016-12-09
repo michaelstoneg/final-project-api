@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  theme: MyString
+  users: one
+  public: false
+  archived: false
+  items: one
+  likes: 1
+  size: 1
+  layout: MyString
+  ar: MyString
+
+two:
+  name: MyString
+  theme: MyString
+  users: two
+  public: false
+  archived: false
+  items: two
+  likes: 1
+  size: 1
+  layout: MyString
+  ar: MyString

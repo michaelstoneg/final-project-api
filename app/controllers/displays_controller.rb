@@ -46,6 +46,6 @@ class DisplaysController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def display_params
-      params.require(:display).permit(:name, :theme, :users_id, :public, :archived, :items_id, :likes, :size, :layout, :ar)
+      params.permit(:name, :theme, :user_id, :public, :archived, :item_ids, :likes, :size, :layout)
     end
 end

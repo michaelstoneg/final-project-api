@@ -16,6 +16,7 @@ class DisplaysController < ApplicationController
   # POST /displays
   def create
     @display = Display.new(display_params)
+    @display.user = current_user
 
     if @display.save
       render json: @display, status: :created, location: @display
@@ -46,6 +47,6 @@ class DisplaysController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def display_params
-      params.permit(:name, :theme, :user_id, :public, :archived, :item_ids, :likes, :size, :layout)
+      params.permit(:name, :theme, :user_id, :public, :archived, :likes, :size, :layout, item_ids: [])
     end
 end

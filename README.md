@@ -1,24 +1,30 @@
-# README
+Welcome to 
+<br>
+#Ephemeralia
+<br>
+by: Michael Grandison
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#Try it Nowwww!!!!!
+<a href="https://ephemeralia.herokuapp.com/">On Heroku</a>
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
+##What is it?
 
-* Configuration
+My tribute to Pinterest. Performs all the core functions of Pinterest. An adventure in PostgreSQL relational databases, Ruby on Rails and AngularJS. Users can build their collections of items that anyone has added to the site as well as view the collections of others.
 
-* Database creation
 
-* Database initialization
+###How it came to be? 
 
-* How to run the test suite
+coming soo...
 
-* Services (job queues, cache servers, search engines, etc.)
+##### Made with:
 
-* Deployment instructions
+HTML5, CSS3, SCSS, Bootstrap, homemade API, Ruby, Ruby on Rails, AngularJS, MVC architecture, PostgreSQL, JWT, NPM, Bower, Gulp, Satellizer.
 
-* ...
+
+
+
+
+
+
